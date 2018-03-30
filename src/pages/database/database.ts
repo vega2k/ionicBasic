@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {AlertController, IonicPage, ItemSliding, NavController, NavParams} from 'ionic-angular';
 import {SQLite, SQLiteObject} from "@ionic-native/sqlite";
 import {EmailComposer} from "@ionic-native/email-composer";
+import {SMS} from "@ionic-native/sms";
 
 /**
  * Generated class for the DatabasePage page.
@@ -21,9 +22,10 @@ export class DatabasePage {
   private users : any;
 
   constructor(public navCtrl: NavController,
-              public sqlite : SQLite,
-              public alertCtrl : AlertController,
-              public emailComposer : EmailComposer,
+              private sqlite : SQLite,
+              private alertCtrl : AlertController,
+              private emailComposer : EmailComposer,
+              private sms: SMS,
               public navParams: NavParams) {
   }
 
@@ -111,6 +113,7 @@ export class DatabasePage {
   }
 
   sendEmail(item:ItemSliding,user) {
+    item.close();
     let email = {
       to: user.email,
       subject: 'To :' + user.name,
@@ -123,6 +126,33 @@ export class DatabasePage {
   }
 
   sendSMS(item:ItemSliding,user) {
+    item.close();
+    let prompt = this.alertCtrl.create({
+      title: 'SMS',
+      message: "메세지를 작성하여 주시기 바랍니다.",
+      inputs: [
+        {
+          name: 'Message',
+          placeholder: 'Message Here....'
+        },
+      ],
+      buttons: [
+        {
+          text: '취소',
+          handler: data => {
+            console.log('취소 clicked');
+          }
+        },
+        {
+          text: '보내기',
+          handler: data => {
+            this.sms.send(user.phone, data.message);
+          }
+        }
+      ]
+    });
+    prompt.present();
+
 
   }
 

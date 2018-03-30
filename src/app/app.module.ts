@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { LoadingProvider } from '../providers/loading/loading';
 import { SQLite } from "@ionic-native/sqlite";
 import {EmailComposer} from "@ionic-native/email-composer";
+import {SMS} from "@ionic-native/sms";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {EmailComposer} from "@ionic-native/email-composer";
     LoadingProvider,
     SQLite,
     EmailComposer,
+    SMS,
   ]
 })
 export class AppModule {}
