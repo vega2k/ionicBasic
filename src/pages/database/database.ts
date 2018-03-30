@@ -3,6 +3,7 @@ import {AlertController, IonicPage, ItemSliding, NavController, NavParams} from 
 import {SQLite, SQLiteObject} from "@ionic-native/sqlite";
 import {EmailComposer} from "@ionic-native/email-composer";
 import {SMS} from "@ionic-native/sms";
+import {CallNumber} from "@ionic-native/call-number";
 
 /**
  * Generated class for the DatabasePage page.
@@ -26,6 +27,7 @@ export class DatabasePage {
               private alertCtrl : AlertController,
               private emailComposer : EmailComposer,
               private sms: SMS,
+              private callNumber: CallNumber,
               public navParams: NavParams) {
   }
 
@@ -152,11 +154,12 @@ export class DatabasePage {
       ]
     });
     prompt.present();
-
-
   }
 
   sendCall(item:ItemSliding,user) {
-
+    item.close();
+    this.callNumber.callNumber(user.phone, true)
+      .then(res => console.log('Launched dialer!', res))
+      .catch(err => console.log('Error launching dialer', err));
   }
 }
