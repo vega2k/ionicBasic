@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>데이터 추가</ion-title>
+    <ion-title>데이터 등록</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,29 +18,30 @@
 
     <ion-item>
       <ion-label fixed>이름</ion-label>
-      <ion-input type="text" [(ngModel)]="accountData.name"></ion-input>
+      <ion-input type="text" [(ngModel)]="userData.name"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label fixed>E메일</ion-label>
-      <ion-input type="text" [(ngModel)]="accountData.email"></ion-input>
+      <ion-input type="email" [(ngModel)]="userData.email"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label fixed>전화번호</ion-label>
-      <ion-input type="text" [(ngModel)]="accountData.phone"></ion-input>
+      <ion-input type="phone" [(ngModel)]="userData.phone"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>성별</ion-label>
-      <ion-select [(ngModel)]="accountData.gender">
+      <ion-select [(ngModel)]="userData.gender">
         <ion-option value="남자">남자</ion-option>
         <ion-option value="여자">여자</ion-option>
       </ion-select>
     </ion-item>
 
-    <ion-item>
-      <button ion-button full (click)="save()">Save</button>
-    </ion-item>
   </ion-list>
+
+  <div padding>
+     <button ion-button color="primary" block (click)="save()">등록</button>
+  </div>
 </ion-content>
