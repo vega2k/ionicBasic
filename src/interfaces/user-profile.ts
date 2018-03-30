@@ -3,4 +3,5 @@ export interface UserProfileInterface {
   email : string,
   phone : string,
   gender : string,
+  id : string
 }
