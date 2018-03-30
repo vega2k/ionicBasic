@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {AlertController, IonicPage, ItemSliding, NavController, NavParams} from 'ionic-angular';
 import {SQLite, SQLiteObject} from "@ionic-native/sqlite";
+import {EmailComposer} from "@ionic-native/email-composer";
 
 /**
  * Generated class for the DatabasePage page.
@@ -22,6 +23,7 @@ export class DatabasePage {
   constructor(public navCtrl: NavController,
               public sqlite : SQLite,
               public alertCtrl : AlertController,
+              public emailComposer : EmailComposer,
               public navParams: NavParams) {
   }
 
@@ -108,4 +110,23 @@ export class DatabasePage {
     confirm.present();
   }
 
+  sendEmail(item:ItemSliding,user) {
+    let email = {
+      to: user.email,
+      subject: 'To :' + user.name,
+      body: '',
+      isHtml: true
+    };
+
+// Send a text message using default options
+    this.emailComposer.open(email);
+  }
+
+  sendSMS(item:ItemSliding,user) {
+
+  }
+
+  sendCall(item:ItemSliding,user) {
+
+  }
 }

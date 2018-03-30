@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { LoadingProvider } from '../providers/loading/loading';
 import { SQLite } from "@ionic-native/sqlite";
+import {EmailComposer} from "@ionic-native/email-composer";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SQLite } from "@ionic-native/sqlite";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoadingProvider,
     SQLite,
+    EmailComposer,
   ]
 })
 export class AppModule {}
