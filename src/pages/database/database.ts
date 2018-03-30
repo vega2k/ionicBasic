@@ -132,7 +132,7 @@ export class DatabasePage {
       message: "메세지를 작성하여 주시기 바랍니다.",
       inputs: [
         {
-          name: 'Message',
+          name: 'message',
           placeholder: 'Message Here....'
         },
       ],
