@@ -158,6 +158,7 @@ export class DatabasePage {
 
   sendCall(item:ItemSliding,user) {
     item.close();
+    alert(user.phone);
     this.callNumber.callNumber(user.phone, true)
       .then(res => console.log('Launched dialer!', res))
       .catch(err => console.log('Error launching dialer', err));
