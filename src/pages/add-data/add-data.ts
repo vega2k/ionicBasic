@@ -38,8 +38,10 @@ export class AddDataPage {
         this.userData.email,
         this.userData.phone,
         this.userData.gender
-      ]).then((result) => {console.log(result); this.navCtrl.pop();})
-        .catch((error) => {console.log(error);})
+      ]).then((result) => {
+          console.log(result);
+          this.navCtrl.pop();
+      }).catch((error) => {console.log(error);})
     }).catch((error) => {console.log(error);});
   }
 }

@@ -29,6 +29,7 @@ export class DatabasePage {
   ionViewWillEnter() {
     this.dbCreate();
   }
+
   dbCreate() {
     this.sqlite.create({
       name : 'mydb.db',
@@ -41,7 +42,7 @@ export class DatabasePage {
       let sql2 = "select * from account order by id DESC";
       db.executeSql(sql2,{}).then((result) => {
         this.users = [];
-        for(var i;i < result.rows.length;i++){
+        for(let i=0; i < result.rows.length;i++){
           this.users.push({
             id:result.rows.item(i).id,
             name:result.rows.item(i).name,
