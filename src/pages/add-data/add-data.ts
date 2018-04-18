@@ -57,8 +57,6 @@ export class AddDataPage {
         ]).then((result) => { this.navCtrl.pop();})
           .catch((error) => { console.log(error);})
       }
-
-
     }).catch((error) => {console.log(error);});
   }
 }

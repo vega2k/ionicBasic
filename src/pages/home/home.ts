@@ -19,9 +19,6 @@ export class HomePage {
   items = [
     {"id":1, name:"UI Component"},
     {"id":2, name:"SQLite"},
-    {"id":3, name:"세번째 item"},
-    {"id":4, name:"네번째 item"},
-    {"id":5, name:"다섯번째 item"},
   ];
 
   userName : any;

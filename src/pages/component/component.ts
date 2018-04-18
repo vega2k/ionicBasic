@@ -152,4 +152,8 @@ export class ComponentPage {
       this.loadingProvider.hide();
     }, 3000);
   }
+
+  card() {
+    this.navCtrl.push('CardPage');
+  }
 }
