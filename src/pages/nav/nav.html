@@ -24,6 +24,11 @@
     <ion-input type="text" readonly [value]="accountData.email"></ion-input>
   </ion-item>
 
+  <ion-item>
+    <ion-label fixed>전화번호</ion-label>
+    <ion-input type="text" readonly [value]="accountData.phoneNumber"></ion-input>
+  </ion-item>
+
   <button ion-button (click)="sendEmail(accountData)">Email</button>
-  <!--<button ion-button color="danger" (click)="clickButton($event)">SMS</button>-->
+  <button ion-button color="danger" (click)="sendSMS(accountData)">SMS</button>
 </ion-content>

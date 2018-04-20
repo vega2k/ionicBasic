@@ -100,6 +100,10 @@ export class ComponentPage {
           name: 'email',
           placeholder: 'Email 입력'
         },
+        {
+          name: 'phoneNumber',
+          placeholder: '전화번호 입력'
+        },
       ],
       buttons: [
         {
@@ -113,7 +117,8 @@ export class ComponentPage {
           handler: data => {
             this.accountData = {
               name : data.name,
-              email : data.email
+              email : data.email,
+              phoneNumber : data.phoneNumber
             }
             this.navCtrl.push('navPage',{account:this.accountData});
           }
